@@ -1,5 +1,7 @@
 # A template repository for Data Networks course exercise documentation
 
+[Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
+
 Please write your documentation the following markdowns created as templates under the `/documentation/` -folder.
 
 - [E01.md](/documentation/E01.md)
