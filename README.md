@@ -2,6 +2,8 @@
 
 [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
 
+Vitosen arvoinen työ, jos koe läpi. 
+
 Please write your documentation the following markdowns created as templates under the `/documentation/` -folder.
 
 - [E01.md](/documentation/E01.md)
@@ -28,9 +30,9 @@ If you have additional material (pictures, topologies), please save them in the 
 
 ### Plain text
 
-Your name here: 
-Student number: 
-Student group: 
+Your name here: Akseli Larikka
+Student number: AD0564
+Student group: TTV23S2
 
 ### Image
 
