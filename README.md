@@ -2,7 +2,11 @@
 
 [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
 
-Vitosen arvoinen työ, jos koe läpi. 
+## Vitosen arvoinen työ kunhan koe läpi (15/30 oikein). 
+
+[Materiaalit ja tehtävät](https://tietoverkot.pages.labranet.jamk.fi/)
+
+## Kaikki tehtävät E01-E17 suoritettu | E14 vaihtoehto 2 | E17 vaihtoehto 3
 
 Please write your documentation the following markdowns created as templates under the `/documentation/` -folder.
 
