@@ -24,7 +24,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 const mongoose = require('mongoose');
 
 // Määritellään MongoDB-yhteysmerkkijono
-const mongoDB ='mongodb+srv://user:8PLv5glXBMr34oe9@jamkdem0.6o9mb.mongodb.net/harkka?retryWrites=true&w=majority&appName=JamkDem0';
+const mongoDB ='mongodb+srv://user:[VERY SECRET PASSKEY]@jamkdem0.6o9mb.mongodb.net/harkka?retryWrites=true&w=majority&appName=JamkDem0';
 
 // Yhdistetään MongoDB-tietokantaan
 mongoose.connect(mongoDB);
