@@ -3,8 +3,12 @@
 ## Documentation
 
 ### Student names and IDs 
-Akseli Larikka AD0564  
-Eetu Järvinen AD1090
+Akseli Larikka   
+Eetu Järvinen 
+
+## Video showcasing the CRUD actions in action along with the app as a whole
+
+[![Video](https://img.youtube.com/vi/txQ6oyuXRLg/0.jpg)](https://www.youtube.com/watch?v=txQ6oyuXRLg)
 
 ### Course information:
 TTC2080 - Full Stack Programming, Autumn 2024
@@ -42,8 +46,7 @@ Your source code should be visible not secret ones
 You need to keep track of your doing, which includes: day, task information, time spent. Include also total hours. Every student need to keep that!
 
 ### Hours:  
-Akseli L.  
-AD0564:  
+Akseli L.:  
 **4.11.**  
 1t, alkusuunnittelu  
 1t, mockup   
@@ -61,8 +64,7 @@ AD0564:
 **Yhteensä:**  
 16,5t
 
-Eetu J.  
-AD1090:  
+Eetu J.:  
 **4.11.**  
 1t, alkusuunnittelu  
 1t, mockup  
