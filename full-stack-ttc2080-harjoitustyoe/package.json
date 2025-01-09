@@ -1,0 +1,22 @@
+{
+  "name": "full-stack-ttc2080-harjoitustyoe",
+  "version": "1.0.0",
+  "description": "Harkkatyö",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AD0564, AD1090",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2",
+    "node": "^22.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

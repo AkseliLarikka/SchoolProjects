@@ -1,0 +1,13 @@
+POST http://localhost:8000/autot
+Content-Type: application/json
+
+{
+    "merkki":"BMW",
+    "malli":"320",
+    "väri":"Musta",
+    "vuosimalli":"2015",
+    "hinta":"11000",
+    "nimi":"Ismo Laitela",
+    "kuva":"mersu.png",
+    "kori":"Hatchback"
+}

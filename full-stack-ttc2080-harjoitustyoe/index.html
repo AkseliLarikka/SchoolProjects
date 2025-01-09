@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Harkkatyö</title>
+    <script src="index.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="left">
+        <h1>KOSLA.net</h1>
+        <p class="header-text">Autosi myyntipaikka</p>
+    </div>
+
+    <!-- Filtterit -->
+    <div id="filters">
+        <select id="merkki" class="filter">
+            <option value="">Merkki</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Lamborghini">Lamborghini</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Volkswagen">Volkswagen</option>
+        </select>
+
+        <select id="malli" class="filter">
+            <option value="">Malli</option>
+            <option value="Yaris">Yaris</option>
+            <option value="X3">X3</option>
+            <option value="Aventador">Aventador</option>
+            <option value="Beetle">Beetle</option>
+            <option value="A4">A4</option>
+            <option value="SL">SL</option>
+        </select>
+
+        <select id="kori" class="filter">
+            <option value="">Korimalli</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Coupe">Coupe</option>
+            <option value="SUV">SUV</option>
+        </select>
+
+        <select id="hinta" class="filter">
+            <option value="">Hinta</option>
+            <option value="10000">Alle 10,000€</option>
+            <option value="20000">10,000€ - 20,000€</option>
+            <option value="30000">20,000€ - 30,000€</option>
+            <option value="30001">Yli 30,000€</option>
+        </select>
+
+        <select id="vuosimalli" class="filter">
+            <option value="">Vuosimalli</option>
+            <option value="2019">Alle 2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023 tai uudempi</option>
+        </select>
+
+        <select id="väri" class="filter">
+            <option value="">Väri</option>
+            <option value="Punainen">Punainen</option>
+            <option value="Sininen">Sininen</option>
+            <option value="Keltainen">Keltainen</option>
+            <option value="Harmaa">Harmaa</option>
+            <option value="Valkoinen">Valkoinen</option>
+            <option value="Musta">Musta</option>
+        </select>
+    </div>
+    <button class="button" id="createCarButton">Luo ilmoitus</button>
+</div>
+
+<!-- Div, johon autot renderöidään -->
+<div id="autot"></div>
+
+<!-- Modal for adding a new car -->
+<div id="addCarModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeAddCarModal">&times;</span>
+        <h2>Lisää uusi auto</h2>
+        <form id="addCarModalForm">
+            <label for="modalMerkki">Merkki:</label>
+            <input type="text" id="modalMerkki" name="merkki" required placeholder="Merkki">
+
+            <label for="modalMalli">Malli:</label>
+            <input type="text" id="modalMalli" name="malli" required placeholder="Malli">
+
+            <label for="modalKori">Korimalli:</label>
+            <input type="text" id="modalKori" name="kori" required placeholder="Korimalli">
+
+            <label for="modalVäri">Väri:</label>
+            <input type="text" id="modalVäri" name="väri" required placeholder="Väri">
+
+            <label for="modalHinta">Hinta (€):</label>
+            <input type="number" id="modalHinta" name="hinta" required placeholder="Hinta">
+
+            <label for="modalVuosimalli">Vuosimalli:</label>
+            <input type="number" id="modalVuosimalli" name="vuosimalli" required placeholder="Vuosimalli">
+
+            <label for="modalKuva">Kuva:</label>
+            <input type="text" id="modalKuva" name="kuva" required placeholder="Tiedoston nimi">
+
+            <label for="modalNimi">Ilmoittajan nimi:</label>
+            <input type="text" id="modalNimi" name="nimi" required placeholder="Nimi">
+
+            <button type="submit">Julkaise auto</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal for editing a car -->
+<div id="editCarModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeEditCarModal">&times;</span>
+        <h2>Muokkaa autoa</h2>
+        <form id="editCarModalForm">
+            <label for="editModalMerkki">Merkki:</label>
+            <input type="text" id="editModalMerkki" name="merkki" required placeholder="Merkki">
+
+            <label for="editModalMalli">Malli:</label>
+            <input type="text" id="editModalMalli" name="malli" required placeholder="Malli">
+
+            <label for="editModalKori">Korimalli:</label>
+            <input type="text" id="editModalKori" name="kori" required placeholder="Korimalli">
+
+            <label for="editModalVäri">Väri:</label>
+            <input type="text" id="editModalVäri" name="väri" required placeholder="Väri">
+
+            <label for="editModalHinta">Hinta (€):</label>
+            <input type="number" id="editModalHinta" name="hinta" required placeholder="Hinta">
+
+            <label for="editModalVuosimalli">Vuosimalli:</label>
+            <input type="number" id="editModalVuosimalli" name="vuosimalli" required placeholder="Vuosimalli">
+
+            <label for="editModalKuva">Kuva:</label>
+            <input type="text" id="editModalKuva" name="kuva" required placeholder="Tiedoston nimi">
+
+            <label for="editModalNimi">Ilmoittajan nimi:</label>
+            <input type="text" id="editModalNimi" name="nimi" required placeholder="Nimi">
+
+            <button type="submit">Tallenna muutokset</button>
+        </form>
+    </div>
+</div>
+
+<script>
+let autot = [];  // Muuttuja, joka pitää sisällään kaikkien autojen tiedot
+let mallit = {};
+
+// Funktio, joka hakee autot palvelimelta ja tallentaa ne 'autot'-muuttujaan
+async function fetchAutot() {
+    try {
+        const response = await fetch('http://localhost:8000/autot');
+        autot = await response.json();  // Tallennetaan autot muuttujaan
+        renderAutot(autot);  // Renderöidään autot aluksi
+    } catch (error) {
+        console.error('Virhe autojen hakemisessa:', error);
+    }
+}
+
+// Funktio, joka renderöi autot HTML:ään
+function renderAutot(autot) {
+    const autodiv = document.getElementById("autot");
+    autodiv.innerHTML = '';  // Tyhjennetään aiemmat autot
+
+    autot.forEach(auto => {
+        const autoDiv = document.createElement('div');
+        autoDiv.classList.add('autoLaatikko');
+        autoDiv.setAttribute('data-id', auto._id);  // Tallennetaan _id autoDiviin, ei näy käyttäjälle
+
+        autoDiv.innerHTML = `
+            <img src="/images/${auto.kuva}" alt="${auto.merkki}" class="kuva">
+            <p>Merkki: ${auto.merkki}</p>
+            <p>Malli: ${auto.malli}</p>
+            <p>Hinta: ${auto.hinta}€</p>
+            <p>Vuosimalli: ${auto.vuosimalli}</p>
+            <p>Väri: ${auto.väri}</p>
+            <p>Korimalli: ${auto.kori}</p>
+            <p>Ilmoittaja: ${auto.nimi}</p>
+            <div class="toiminnot">
+                <img src="/images/pen.png" alt="Muokkaa" class="toimintoKuvake" id="edit-${auto._id}">
+                <img src="/images/trash.png" alt="Poista" class="toimintoKuvake" id="delete-${auto._id}">
+            </div>
+        `;
+
+        // Lisätään tapahtumankuuntelijat muokkaus- ja poistonappeihin
+        const editButton = autoDiv.querySelector('img[alt="Muokkaa"]');
+        const deleteButton = autoDiv.querySelector('img[alt="Poista"]');
+
+        editButton.addEventListener('click', () => muokkaaAuto(autoDiv));
+        deleteButton.addEventListener('click', () => poistaAuto(autoDiv));
+
+        autodiv.appendChild(autoDiv);
+    });
+}
+
+// Funktio, joka poistaa valitun auton
+async function poistaAuto(autoDiv) {
+    const autoId = autoDiv.getAttribute('data-id');  // Haetaan auto ID
+    console.log("Poistettavan auton ID:", autoId);
+    if (confirm('Haluatko varmasti poistaa tämän auton?')) {
+        try {
+            const response = await fetch(`http://localhost:8000/autot/${autoId}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) {
+                alert('Auto poistettu!');
+                fetchAutot(); // Päivitetään autot
+            } else {
+                const errorMessage = await response.text();
+                alert(`Virhe auton poistamisessa: ${errorMessage}`);
+            }
+        } catch (error) {
+            console.error('Virhe poistamisessa:', error);
+            alert('Yhteysvirhe auton poistamisessa!');
+        }
+    }
+}
+
+// Funktio, joka suodattaa autot valittujen suodattimien mukaan
+function filterAutot() {
+    let filtered = autot;
+
+    // Haetaan valitut suodattimet
+    const merkki = document.getElementById('merkki').value;
+    const malli = document.getElementById('malli').value;
+    const kori = document.getElementById('kori').value;
+    const hinta = document.getElementById('hinta').value;
+    const vuosimalli = document.getElementById('vuosimalli').value;
+    const väri = document.getElementById('väri').value;
+
+    // Suodatetaan autot
+    if (merkki) filtered = filtered.filter(auto => auto.merkki === merkki);
+    if (malli) filtered = filtered.filter(auto => auto.malli === malli);
+    if (kori) filtered = filtered.filter(auto => auto.kori === kori);
+    if (hinta) {
+        if (hinta === "10000") {
+            filtered = filtered.filter(auto => auto.hinta < 10000);
+        } else if (hinta === "20000") {
+            filtered = filtered.filter(auto => auto.hinta >= 10000 && auto.hinta < 20000);
+        } else if (hinta === "30000") {
+            filtered = filtered.filter(auto => auto.hinta >= 20000 && auto.hinta < 30000);
+        } else if (hinta === "30001") {
+            filtered = filtered.filter(auto => auto.hinta >= 30000);
+        }
+    }
+    if (vuosimalli) {
+        if (vuosimalli === "2019") {
+            filtered = filtered.filter(auto => auto.vuosimalli < 2019);
+        } else if (vuosimalli === "2023") {
+            filtered = filtered.filter(auto => auto.vuosimalli >= 2023);
+        } else {
+            filtered = filtered.filter(auto => auto.vuosimalli == vuosimalli);
+        }
+    }
+    if (väri) filtered = filtered.filter(auto => auto.väri === väri);
+
+    renderAutot(filtered);  // Renderöidään suodatetut autot
+}
+
+// Lisätään event listenerit dropdown-valikoille
+document.querySelectorAll('.filter').forEach(select => {
+    select.addEventListener('change', () => {
+        filterAutot(); // Suodatetaan autot
+    });
+});
+
+// Ladataan autot heti ensimmäisellä kerralla
+fetchAutot();
+
+let isEditMode = false; // Alussa uuden auton luontitilassa
+let autoIdToEdit = null; // Muokattavan auton ID, jos muokkaustilassa
+
+// Funktio, joka asettaa lomakkeen kentät valitun auton tiedoilla
+function setFormValues(auto) {
+    document.getElementById('modalMerkki').value = auto.merkki;
+    document.getElementById('modalMalli').value = auto.malli;
+    document.getElementById('modalVäri').value = auto.väri;
+    document.getElementById('modalVuosimalli').value = auto.vuosimalli;
+    document.getElementById('modalHinta').value = auto.hinta;
+    document.getElementById('modalNimi').value = auto.nimi;
+    document.getElementById('modalKuva').value = auto.kuva;
+    document.getElementById('modalKori').value = auto.kori;
+}
+
+// Funktio, joka avaa muokkauslomakkeen ja täyttää sen auton tiedoilla
+function muokkaaAuto(autoDiv) {
+    const autoId = autoDiv.getAttribute('data-id'); // Haetaan auton ID
+    console.log(`Muokataan autoa ID:llä ${autoId}`);
+
+    // Etsitään auto vastaavilla tiedoilla, jotka löytyvät jo ladatuista autoista
+    const auto = autot.find(a => a._id === autoId);
+    if (!auto) {
+        alert('Autoa ei löytynyt!');
+        return;
+    }
+
+    setFormValues(auto);
+    autoIdToEdit = autoId;
+    isEditMode = true; // Muokkaustila
+
+    // Näytetään modaali
+    document.getElementById('editCarModal').style.display = 'block';
+}
+
+// Lisätään tapahtumankuuntelija "Luo ilmoitus" -napille
+document.getElementById('createCarButton').addEventListener('click', () => {
+    document.getElementById('addCarModal').style.display = 'block';
+});
+
+// Lisätään tapahtumankuuntelija "Sulje" -napille modaaleissa
+document.getElementById('closeAddCarModal').addEventListener('click', () => {
+    document.getElementById('addCarModal').style.display = 'none';
+});
+document.getElementById('closeEditCarModal').addEventListener('click', () => {
+    document.getElementById('editCarModal').style.display = 'none';
+});
+
+// Lisätään tapahtumankuuntelija modaalin lomakkeelle
+document.getElementById('addCarModalForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Estetään lomakkeen oletustoiminto
+
+    // Kerätään lomakkeen tiedot
+    const auto = {
+        merkki: document.getElementById('modalMerkki').value,
+        malli: document.getElementById('modalMalli').value,
+        väri: document.getElementById('modalVäri').value,
+        vuosimalli: parseInt(document.getElementById('modalVuosimalli').value),
+        hinta: parseInt(document.getElementById('modalHinta').value),
+        nimi: document.getElementById('modalNimi').value,
+        kuva: document.getElementById('modalKuva').value,
+        kori: document.getElementById('modalKori').value
+    };
+
+    try {
+        const response = await fetch('http://localhost:8000/autot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(auto)
+        });
+
+        if (response.ok) {
+            alert('Auto lisätty onnistuneesti!');
+            document.getElementById('addCarModal').style.display = 'none';
+        } else {
+            const errorMessage = await response.text();
+            alert(`Virhe auton lisäyksessä: ${errorMessage}`);
+        }
+    } catch (error) {
+        console.error('Virhe:', error);
+        alert('Yhteysvirhe!');
+    }
+
+    fetchAutot(); // Päivitetään autojen lista
+});
+
+// Lisätään tapahtumankuuntelija modaalin muokkauslomakkeelle
+document.getElementById('editCarModalForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Estetään lomakkeen oletustoiminto
+
+    // Kerätään lomakkeen tiedot
+    const auto = {
+        merkki: document.getElementById('editModalMerkki').value,
+        malli: document.getElementById('editModalMalli').value,
+        väri: document.getElementById('editModalVäri').value,
+        vuosimalli: parseInt(document.getElementById('editModalVuosimalli').value),
+        hinta: parseInt(document.getElementById('editModalHinta').value),
+        nimi: document.getElementById('editModalNimi').value,
+        kuva: document.getElementById('editModalKuva').value,
+        kori: document.getElementById('editModalKori').value
+    };
+    try {
+        const response = await fetch(`http://localhost:8000/autot/${autoIdToEdit}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(auto)
+        });
+
+        if (response.ok) {
+            alert('Auto päivitetty onnistuneesti!');
+            document.getElementById('editCarModal').style.display = 'none';
+        } else {
+            const errorMessage = await response.text();
+            alert(`Virhe auton päivityksessä: ${errorMessage}`);
+        }
+    } catch (error) {
+        console.error('Virhe:', error);
+        alert('Yhteysvirhe!');
+    }
+
+    fetchAutot(); // Päivitetään autojen lista
+});
+
+// Lisätään tapahtumankuuntelija kynäkuvakkeelle
+document.querySelectorAll('img[alt="Muokkaa"]').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const autoId = event.target.getAttribute('data-id');
+        const auto = autot.find(a => a._id === autoId);
+        if (auto) {
+            openEditCarModal(auto);
+        }
+    });
+});
+</script>
+</body>
+</html>
