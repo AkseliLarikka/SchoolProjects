@@ -1,0 +1,47 @@
+lubuntu@lubuntu-virtualbox:~$ dig +trace student.labranet.jamk.fi
+
+; <<>> DiG 9.16.1-Ubuntu <<>> +trace student.labranet.jamk.fi
+;; global options: +cmd
+.                       2097    IN      NS      l.root-servers.net.
+.                       2097    IN      NS      m.root-servers.net.
+.                       2097    IN      NS      a.root-servers.net.
+.                       2097    IN      NS      b.root-servers.net.
+.                       2097    IN      NS      c.root-servers.net.
+.                       2097    IN      NS      d.root-servers.net.
+.                       2097    IN      NS      e.root-servers.net.
+.                       2097    IN      NS      f.root-servers.net.
+.                       2097    IN      NS      g.root-servers.net.
+.                       2097    IN      NS      h.root-servers.net.
+.                       2097    IN      NS      i.root-servers.net.
+.                       2097    IN      NS      j.root-servers.net.
+.                       2097    IN      NS      k.root-servers.net.
+;; Received 262 bytes from 127.0.0.53#53(127.0.0.53) in 8 ms
+
+fi.                     172800  IN      NS      h.fi.
+fi.                     172800  IN      NS      i.fi.
+fi.                     172800  IN      NS      a.fi.
+fi.                     172800  IN      NS      c.fi.
+fi.                     172800  IN      NS      e.fi.
+fi.                     172800  IN      NS      d.fi.
+fi.                     172800  IN      NS      g.fi.
+fi.                     172800  IN      NS      b.fi.
+fi.                     172800  IN      NS      j.fi.
+fi.                     172800  IN      NS      k.fi.
+fi.                     86400   IN      DS      35221 8 2 D4A489017F68A6C02836D4F126A4B9F6AF34C371993BEE97ED759D83 DB9CD38E
+fi.                     86400   IN      RRSIG   DS 8 1 86400 20240505050000 20240422040000 5613 . PTPHdCLDzfgYdIs2z4BFbm3CGVj+CfT6l9RrNlty+GIftjtnBdgA8FqW Ueo8FUeGGdMlRjhLxqASQkAi17yrTIWZHH+yETMISMnONCp01e8+Nwwx 20hMqpNO0oei3jseLIZjn1fjx7fuQJKchz+PjvZMwdFxPH39GVn2sO4N m0gJLWfgrHFsHAQ9ZckffhiZJdt6R5/Pa1THUWoCHLZUEsifBcmRgjbB MLVH6tMT+AWm8PHkQZ/li+thD2sD/vkStvxyMLRKqVm9gEwPX8F1Gh42 zQHi7/cKehezCffNQR2WYtFbjdpAo+OE06zPCdHLa/qQAmctgIUx0GOg +RF8aA==
+;; Received 1018 bytes from 192.33.4.12#53(c.root-servers.net) in 40 ms
+
+jamk.fi.                21600   IN      NS      humppa.jypoly.fi.
+jamk.fi.                21600   IN      NS      jazz.jypoly.fi.
+jamk.fi.                21600   IN      NS      tango.jypoly.fi.
+oq54jajfeuqg10kq9b5uisj2j3in2k7k.fi. 86400 IN NSEC3 1 1 5 D7F8DABE19C6995A OQ81VCMMHB5OR9HF62853J7QTHPN4QD5 NS SOA TXT RRSIG DNSKEY NSEC3PARAM
+oq54jajfeuqg10kq9b5uisj2j3in2k7k.fi. 86400 IN RRSIG NSEC3 8 2 86400 20240502191830 20240418131122 31651 fi. BoI+Jkf8fFKzrSXNMBeywraZpNcVDDBx+WHEXOdVmR+gjFw8KA8ksZb7 PosHMDHMV06uDd+yMX2QbBQZc4smGMhuOXW9s0UpS+6I/ZQyygqU7cTY SGjpVu82lgg0KPPDWQt4mRRlLdsD5ztbp2+3gmqKtJurJhupcJe1OEbP iGK7ejyDBJK4n9TUq3ehQSuW9bVTMxkgDOdekshtIsu4iqLCaZEDBQHh vVNZSR2XcZMQ3t7oJUEA0ZPxi82epN9lBuTOhsiWGpYp2IpkpZtNcHBk aEjE8wSM5VInPTWc7ZvlZnnRpbtZNCEndXVxwLykDq8k87GrHh67Himc QHFZ5Q==
+7vt0rqbilbu92ouj82d8mhpgunnskf5q.fi. 86400 IN NSEC3 1 1 5 D7F8DABE19C6995A 7VUB1QFSPL7RM46SFPCRFT25KLN40OMN NS DS RRSIG
+7vt0rqbilbu92ouj82d8mhpgunnskf5q.fi. 86400 IN RRSIG NSEC3 8 2 86400 20240506000949 20240422051117 31651 fi. gTeYsLFQvaGR6duZPjbpblzsYGDPVpjhUpVjoBqeUQYGKhsZOfPYxy1G XO9aIotJ4HJrvhAMRF69iObuAanF0zjYy7CCO8e+Id2BddI630NGcmFB Y/RMBeKfOPGGNJZJChtIL+VzLiaYd7QrJPYTo6HlPjXT8t9qkJfJMRgJ zuQJ15FeLGMTOxCd6yy5ALCUzBoQvgGPDRrEKwmbmGdeZzCzJ95+wAHJ gaI7SBosej8Ds5Q3IeKT5kqbgTzI3J8ebFOyDsn9QbJKwh04FwEe5scN fQrC/Zl/OD0k7ooKMVqB8Mio+wvzr5u0QuqSeTNRHxCkzUcWCLDmH4sW vwojZQ==
+;; Received 923 bytes from 213.186.229.226#53(k.fi) in 8 ms
+
+student.labranet.jamk.fi. 60    IN      A       195.148.26.130
+jamk.fi.                86400   IN      NS      jazz.jypoly.fi.
+jamk.fi.                86400   IN      NS      tango.jypoly.fi.
+jamk.fi.                86400   IN      NS      humppa.jypoly.fi.
+;; Received 296 bytes from 195.148.128.19#53(jazz.jypoly.fi) in 12 ms
