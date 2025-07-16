@@ -1,4 +1,4 @@
-# A template repository for Data Networks course exercise documentation
+# A repository for Data Networks course exercise documentation
 
 [Markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
 
@@ -29,41 +29,3 @@ Please write your documentation the following markdowns created as templates und
 - [E17.md](/documentation/E17.md)
 
 If you have additional material (pictures, topologies), please save them in the repository to the correct folder e.g. `/documentation/E01/jamk.png`
-
-## Example markdown
-
-### Plain text
-
-Your name here: Akseli Larikka
-Student number: AD0564
-Student group: TTV23S2
-
-### Image
-
-This is a reference to an image
-
-![](/documentation/E01/jamk.png)
-
-### Configuration example
-
-Either as a file
-
-- [switch.cfg](/documentation/switch.cfg)
-
-Or as a blockquote/snippet
-
-```
-EXOS-VM.1 # show configuration
-#
-# Module devmgr configuration.
-#
-configure snmp sysContact "https://www.extremenetworks.com/support/"
-configure sys-recovery-level switch reset
-
-#
-# Module vlan configuration.
-#
-configure vlan default delete ports all
-configure vr VR-Default delete ports 1-2
-configure vr VR-Default add ports 1-2
-```
